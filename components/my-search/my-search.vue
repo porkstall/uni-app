@@ -29,7 +29,7 @@
     },
     methods: {
       searchBoxHandler() {
-        this.$emit('click')
+        this.$emit('myclick')
       }
     }
   }
