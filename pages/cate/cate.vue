@@ -37,14 +37,11 @@
       return {
         // 当前设备可用的高度
         wh: 0,
-        // 当前选中项的索引，默认让第一项被选中
-        active: 0,
-        // 一级分类列表
         cateList: [],
-        // 二级分类列表
+        active: 0,
+        // 二级分类的列表
         cateLevel2: [],
-        // 滚动条距离顶部的距离
-        scrollTop: 0,
+        scrollTop: 0
       };
     },
     onLoad() {
@@ -97,59 +94,57 @@
       width: 120px;
 
       .left-scroll-view-item {
+        background-color: #F7F7F7;
         line-height: 60px;
-        background-color: #f7f7f7;
         text-align: center;
         font-size: 12px;
 
-        // 激活项的样式
         &.active {
-          background-color: #ffffff;
+          background-color: #FFFFFF;
           position: relative;
 
-          // 渲染激活项左侧的红色指示边线
           &::before {
             content: ' ';
             display: block;
             width: 3px;
             height: 30px;
-            background-color: #c00000;
+            background-color: #C00000;
             position: absolute;
-            left: 0;
             top: 50%;
+            left: 0;
             transform: translateY(-50%);
           }
         }
       }
     }
+  }
 
-    .cate-lv2-title {
-      font-size: 12px;
-      font-weight: bold;
-      text-align: center;
-      padding: 15px 0;
-    }
+  .cate-lv2-title {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+  }
 
-    .cate-lv3-list {
+  .cate-lv3-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .cate-lv3-item {
+      width: 33.33%;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
 
-      .cate-lv3-item {
-        display: flex;
-        width: 33.33%;
-        margin-bottom: 10px;
-        flex-direction: column;
-        align-items: center;
+      image {
+        width: 60px;
+        height: 60px;
+      }
 
-        image {
-          width: 60px;
-          height: 60px;
-        }
-
-        text {
-          font-size: 12px;
-          margin-top: 5px;
-        }
+      text {
+        font-size: 12px;
       }
     }
   }
